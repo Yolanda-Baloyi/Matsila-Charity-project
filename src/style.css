@@ -1,329 +1,123 @@
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-}
-
-.hero {
-  position: relative;
-  height: 100vh;
-  background: url("hero.jpg") center/cover no-repeat;}
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   position: relative;
-  /* background-color: #b4aaa0; */
+  background-color: #e0d3c6fa;
   height: 70px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-.img-cover{
-  position: relative ;
+
+.heading {
+  display: flex;
+  align-items: center;
+  left: 50px;
+}
+
+.img-cover {
+  position: relative;
   z-index: 100;
+  display: flex;
 }
-.img-background{
+
+.img-background {
   position: absolute;
-  background-color: white ;
+  background-color: white;
   padding: 10px;
   margin-left: 40px;
 }
-.img-cover img{
+
+.img-cover img {
   width: 90px;
   height: 90px;
-  position: relative ; 
+  position: relative;
 }
 
-.header-list{
+.header-list {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
 }
-li{
+
+li {
   padding: 10px;
   list-style: none;
   margin-right: 10px;
 
 }
-.donate{
-  background-color:#a1770a ;
+
+.donate {
+  background-color: #a1770a;
   padding: 10px;
   border-radius: 4px;
   color: white;
 }
-.hero {
+
+
+/* gallery styles  */
+section {
+  background-color: rgb(200, 233, 247);
+  padding: 10px 0;
+}
+
+.gallery-tittle {
+  text-align: center;
+}
+
+.gallery-cover {
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  padding: 0 40px;
+
+}
+
+.gallery-images {
   position: relative;
-  height: 100vh;
-  /* background: url("hero.jpg") center/cover no-repeat; */
-  background-color: rgb(102, 122, 179);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.gallery-images>p {
+  text-align: center;
+  font-weight: 600;
+}
+
+.gallery-images>img {
+  width: 400px;
+  height: 410px;
+  background-repeat: no-repeat;
+  display: block;
+  margin: 0 auto;
+
+}
+
+.image-info {
+  position: absolute;
+  /* top: 0px; */
+  left: 0px;
+  right: 0px;
+  bottom: 50px;
+  background-color: rgba(0, 0, 0, 0.45);
+  width: 100%;
+  height: 0;
+  transition: .8s ease;
+  text-align: center;
+  overflow: hidden;
+}
+.image-info>p{
+  padding:0 10px;
+}
+
+.gallery-images:hover .image-info {
+  height: 89%;
   color: white;
 }
-
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* overlay */
+.more-images{
+  display: none;
 }
 
-.hero-content {
-  position: relative;
-  text-align: center;
-  z-index: 2;
-  max-width: 700px;
-  padding: 0 20px;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.hero a {
-  background-color: #f8b400;
-  background-color: #a1770a;
-  color: #fff;
-  padding: 12px 30px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 30px;
-  transition: background-color 0.3s ease;
-}
-
-.hero a:hover {
-  background-color: #d99a00;
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-}
-.about {
-  padding: 80px 10%;
-  background-color: #f9f9f9;
-}
-
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-.about-text {
-  flex: 1 1 45%;
-}
-
-.about-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.about-text p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.7;
-}
-
-.about-images {
-  position: relative;
-  flex: 1 1 45%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-images img {
-  width: 80%;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.about-images .img-top {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  z-index: 2;
-}
-
-.about-images .img-bottom {
-  position: absolute;
-  bottom: -40px;
-  right: 0;
-  z-index: 1;
-}
-
-.about-images img:hover {
-  transform: scale(1.02);
-}
-
-/* Responsive part */
-@media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-  }
-
-  .about-images {
-    width: 100%;
-    height: 400px;
-    margin-top: 30px;
-  }
-
-  .about-images img {
-    width: 60%;
-  }
-}
-
-.mission {
-  padding: 100px 10%;
-  background-color: #fff;
-}
-
-.mission-container {
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-}
-
-.mission-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-.mission-text {
-  flex: 1 1 45%;
-}
-
-.mission-text h2 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.mission-text p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.7;
-}
-
-/* Round / Heart-ish Images */
-.mission-image {
-  flex: 1 1 45%;
-  position: relative;
-}
-
-.mission-image img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%; /* roundish blob part */
-  object-fit: cover;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.mission-image img:hover {
-  transform: scale(1.03);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .mission-row {
-    flex-direction: column;
-  }
-
-  .mission-image img {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .mission-text {
-    text-align: center;
-  }
-}
-.team {
-  padding: 100px 10%;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.team h2 {
-  font-size: 2.8rem;
-  color: #333;
-  margin-bottom: 50px;
-}
-
-.team-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-bottom: 50px;
-}
-
-.team-member {
-  flex: 1 1 calc(20% - 30px); /* 5 per row here */
-  max-width: 150px;
-}
-
-.team-member img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-}
-
-.team-member img:hover {
-  transform: scale(1.05);
-}
-
-/* Adjust rows to 4 */
-.team-row:nth-child(2) .team-member,
-.team-row:nth-child(3) .team-member {
-  flex: 1 1 calc(22% - 30px); /* larger to fill row */
-  max-width: 160px;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .team-member {
-    flex: 1 1 calc(33.33% - 20px);
-    max-width: 120px;
-  }
-}
-
-@media (max-width: 768px) {
-  .team-member {
-    flex: 1 1 calc(50% - 20px);
-    max-width: 150px;
-  }
-}
-
-@media (max-width: 480px) {
-  .team-member {
-    flex: 1 1 100%;
-    max-width: 200px;
-    margin: 0 auto;
-  }
-}
 body {
   font-family: "Poppins", sans-serif;
   margin: 0%;
