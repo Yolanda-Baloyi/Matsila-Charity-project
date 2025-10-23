@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matsila</title>
+    <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
 
   <section class="hero">
+    <section class="carousel">
+  <div class="carousel-container">
+    <button class="carousel-btn prev">&#10094;</button>
+    <div class="carousel-track">
+      <img src="pictures/hero 2.jpg" alt="Slide 1" class="carousel-slide">
+      <img src="pictures/hero 3.jpg" alt="Slide 2" class="carousel-slide">
+      <img src="pictures/hero1.jpg" alt="Slide 3" class="carousel-slide">
+    </div>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+</section>
+
     <div class="hero-content">
       <h1>Empowering Communities, Changing Lives</h1>
       <p>Together we can make a difference. Join our mission to uplift and support those in need.</p>
@@ -28,8 +41,8 @@
     </div>
 
     <div class="about-images">
-      <img src="images/about1.jpg" alt="About Pic1" class="img-top">
-      <img src="images/about2.jpg" alt="About Pic2" class="img-bottom">
+      <img src="" alt="About Pic1" class="img-top">
+      <img src="" alt="About Pic2" class="img-bottom">
     </div>
   </div>
 </section>
@@ -48,14 +61,14 @@
         </p>
       </div>
       <div class="mission-image">
-        <img src="images/mission1.jpg" alt="MissionPic1">
+        <img src="pictures/beige.jpg" alt="MissionPic1">
       </div>
     </div>
 
     <!-- Row 2: Image Left, Text Right -->
     <div class="mission-row">
       <div class="mission-image">
-        <img src="images/mission2.jpg" alt="MissionPic2">
+        <img src="pictures/beige2.jpg" alt="MissionPic2">
       </div>
       <div class="mission-text">
         <h2>Our Vision</h2>
@@ -77,7 +90,7 @@
         </p>
       </div>
       <div class="mission-image">
-        <img src="images/mission3.jpg" alt="MissionPic3">
+        <img src="images/mission3.jpn" alt="MissionPic3">
       </div>
     </div>
   
@@ -87,71 +100,91 @@
   <div class="team-container">
   
     <div class="team-member">
-      <img src="pictures/placeholderrr-png.png" alt="Team Member 1">
+      <img src="pictures/brian.jpg" alt="Team Member 1">
       <h3>Name Surname</h3>
       <p>Position</p>
     </div>
     <div class="team-member">
-      <img src="" alt="Team Member 2">
+      <img src="pictures/wonder.jpg" alt="Team Member 2">
       <h3>Name Surname</h3>
       <p>Position</p>
     </div>
     <div class="team-member">
-      <img src="" alt="Team Member 3">
+      <img src="pictures/enock.jpg" alt="Team Member 3">
       <h3>Name Surname</h3>
       <p>Position</p>
     </div>
     <div class="team-member">
-      <img src="" alt="Team Member 4">
+      <img src="pictures/amelia.jpg" alt="Team Member 4">
       <h3>Name Surname</h3>
       <p>Position</p>
     </div>
     <div class="team-member">
-      <img src="" alt="Team Member 5">
-      <h3>Name Surname</h3>
-      <p>Position</p>
-    </div>
-
-    <div class="team-member">
-      <img src="" alt="Team Member 6">
-      <h3>Name Surname</h3>
-      <p>Position</p>
-    </div>
-    <div class="team-member">
-      <img src="" alt="Team Member 7">
-      <h3>Name Surname</h3>
-      <p>Position</p>
-    </div>
-    <div class="team-member">
-      <img src="" alt="Team Member 8">
-      <h3>Name Surname</h3>
-      <p>Position</p>
-    </div>
-    <div class="team-member">
-      <img src="" alt="Team Member 9">
+      <img src="pictures/chris.jpg" alt="Team Member 5">
       <h3>Name Surname</h3>
       <p>Position</p>
     </div>
 
     <div class="team-member">
-      <img src="" alt="Team Member 10">
+      <img src="pictures/gladwin.jpg" alt="Team Member 6">
       <h3>Name Surname</h3>
       <p>Position</p>
     </div>
     <div class="team-member">
-      <img src="" alt="Team Member 11">
+      <img src="pictures/hangwani.jpg" alt="Team Member 7">
       <h3>Name Surname</h3>
       <p>Position</p>
     </div>
     <div class="team-member">
-      <img src="" alt="Team Member 12">
+      <img src="pictures/karel.jpg" alt="Team Member 8">
       <h3>Name Surname</h3>
       <p>Position</p>
     </div>
     <div class="team-member">
-      <img src="" alt="Team Member 13">
+      <img src="pictures/marubini.jpg" alt="Team Member 9">
+      <h3>Name Surname</h3>
+      <p>Position</p>
+    </div>
+
+    <div class="team-member">
+      <img src="pictures/mpho.jpg" alt="Team Member 10">
+      <h3>Name Surname</h3>
+      <p>Position</p>
+    </div>
+    <div class="team-member">
+      <img src="pictures/sydwell.jpg" alt="Team Member 11">
+      <h3>Name Surname</h3>
+      <p>Position</p>
+    </div>
+    <div class="team-member">
+      <img src="pictures/nkuzanaS.jpg" alt="Team Member 12">
+      <h3>Name Surname</h3>
+      <p>Position</p>
+    </div>
+    <div class="team-member">
+      <img src="pictures/nono.jpg" alt="Team Member 13">
       <h3>Name Surname</h3>
       <p>Position</p>
     </div>
   </div>
 </section>
+<script>
+  const track = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${currentIndex * 100}vw)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+    updateCarousel();
+  });

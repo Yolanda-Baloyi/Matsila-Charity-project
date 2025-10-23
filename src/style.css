@@ -1,16 +1,26 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
+
+  html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 }
 
 .hero {
   position: relative;
+  width: 100vw;
   height: 100vh;
   background: url("hero.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .hero::after {
@@ -21,6 +31,58 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* overlay */
+}
+
+/* Carousel Section */
+.carousel {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-container {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
 }
 
 .hero-content {
@@ -295,9 +357,8 @@ body {
 
 .team-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 30px;
-  justify-content: center;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 20px;
 }
 
 /* Each team member box */
@@ -358,5 +419,4 @@ body {
 @media (max-width: 400px) {
   .team-container {
     grid-template-columns: 1fr;
-  }
-}
+  
