@@ -9,24 +9,30 @@
 <body>
 
   <section class="hero">
-    <section class="carousel">
-  <div class="carousel-container">
-    <button class="carousel-btn prev">&#10094;</button>
-    <div class="carousel-track">
-      <img src="pictures/hero 2.jpg" alt="Slide 1" class="carousel-slide">
-      <img src="pictures/hero 3.jpg" alt="Slide 2" class="carousel-slide">
-      <img src="pictures/hero1.jpg" alt="Slide 3" class="carousel-slide">
+  <div class="hero-carousel">
+
+    <!--  Carousel Slides -->
+    <div class="slide active">
+      <img src="pictures/hero 2.jpg" alt="Hero Image 1">
     </div>
-    <button class="carousel-btn next">&#10095;</button>
-  </div>
+    <div class="slide">
+      <img src="pictures/hero 3.jpg" alt="Hero Image 2">
+    </div>
+    <div class="slide">
+      <img src="pictures/hero1.jpg" alt="Hero Image 3">
+    </div>
+
+    <!-- Arrows -->
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+
+<div class="hero-text">
+  <h1>Welcome to Matsila Foundation</h1>
+  <p>Empowering communities, changing lives.</p>
+  <a href="#donate" class="donate-btn">Donate Now</a>
+</div>
 </section>
 
-    <div class="hero-content">
-      <h1>Empowering Communities, Changing Lives</h1>
-      <p>Together we can make a difference. Join our mission to uplift and support those in need.</p>
-      <a href="#donate">Donate Now</a>
-    </div>
-  </section>
 <section class="about">
   <div class="about-container">
     <div class="about-text">
@@ -39,10 +45,16 @@
         more sustainable future for all.
       </p>
     </div>
+    
+<div class="divider">
+  <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+    <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" fill="#f9f9f9"></path>
+  </svg>
+</div>
 
     <div class="about-images">
-      <img src="" alt="About Pic1" class="img-top">
-      <img src="" alt="About Pic2" class="img-bottom">
+      <img src="pictures/copilotabout.png" alt="About Pic1" class="img-top">
+      <img src="pictures/copilotabouther.png" alt="About Pic2" class="img-bottom">
     </div>
   </div>
 </section>
@@ -55,20 +67,20 @@
       <div class="mission-text">
         <h2>Our Mission</h2>
         <p>
-          Our mission is to restore dignity, hope, and opportunity through empowerment.
+          Our mission is to restore dignity, hope and opportunity through empowerment.
           We believe every individual has potential, and with the right support, communities
           can thrive and inspire positive change across generations.
         </p>
       </div>
       <div class="mission-image">
-        <img src="pictures/beige.jpg" alt="MissionPic1">
+        <img src="pictures/hero 3.jpg" alt="MissionPic1">
       </div>
     </div>
 
     <!-- Row 2: Image Left, Text Right -->
     <div class="mission-row">
       <div class="mission-image">
-        <img src="pictures/beige2.jpg" alt="MissionPic2">
+        <img src="pictures/hero1.jpg" alt="MissionPic2">
       </div>
       <div class="mission-text">
         <h2>Our Vision</h2>
@@ -84,16 +96,19 @@
       <div class="mission-text">
         <h2>Our Values</h2>
         <p>
-          Our mission is to restore dignity, hope, and opportunity through empowerment.
+          Our mission is to restore dignity, hope and opportunity through empowerment.
           We believe every individual has potential, and with the right support, communities
           can thrive and inspire positive change across generations.
         </p>
       </div>
       <div class="mission-image">
-        <img src="images/mission3.jpn" alt="MissionPic3">
+        <img src="pictures/hero 2.jpg" alt="MissionPic3">
       </div>
     </div>
-  
+  </section>
+
+<div class="section-divider"></div>
+
     <!-- Meet Our Team Section -->
 <section class="team">
   <h2>Meet Our Team</h2>
@@ -162,29 +177,41 @@
       <p>Position</p>
     </div>
     <div class="team-member">
-      <img src="pictures/nono.jpg" alt="Team Member 13">
+      <img src="pictures/MashambaHB.jpg" alt="Team Member 13">
       <h3>Name Surname</h3>
       <p>Position</p>
     </div>
   </div>
 </section>
-<script>
-  const track = document.querySelector('.carousel-track');
-  const slides = document.querySelectorAll('.carousel-slide');
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const nextBtn = document.querySelector('.carousel-btn.next');
-  let currentIndex = 0;
 
-  function updateCarousel() {
-    track.style.transform = `translateX(-${currentIndex * 100}vw)`;
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const slides = document.querySelectorAll('.slide');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
   }
 
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
-    updateCarousel();
+  prev.addEventListener('click', () => {
+    current = (current === 0) ? slides.length - 1 : current - 1;
+    showSlide(current);
   });
 
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
-    updateCarousel();
+  next.addEventListener('click', () => {
+    current = (current === slides.length - 1) ? 0 : current + 1;
+    showSlide(current);
   });
+
+  showSlide(current);
+
+  // Auto-slide every 5s
+  setInterval(() => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }, 5000);
+});
+</script>
