@@ -130,110 +130,129 @@ section {
 
 .hero {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: url("hero.jpg") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
 }
 
-.hero::after {
-  content: "";
+.hero-carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hero-carousel .slide {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* overlay */
 }
 
-/* Carousel Section */
-.carousel {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
+.hero-carousel .slide.active {
+  display: block;
 }
 
-.carousel-container {
-  width: 100vw;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-track {
-  display: flex;
+.hero-carousel .slide img {
   width: 100%;
   height: 100%;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slide {
-  min-width: 100vw;
-  height: 100vh;
   object-fit: cover;
 }
 
-.carousel-btn {
+.hero-text {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.carousel-btn.prev {
-  left: 10px;
-}
-
-.carousel-btn.next {
-  right: 10px;
-}
-
-.hero-content {
-  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: rgb(255, 255, 255);
   text-align: center;
-  z-index: 2;
-  max-width: 700px;
-  padding: 0 20px;
 }
 
-.hero h1 {
+.hero-text h1 {
   font-size: 3rem;
-  margin-bottom: 1rem;
 }
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.hero a {
-  background-color: #f8b400;
-  color: #fff;
-  padding: 12px 30px;
+.donate-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #5adbff;
+  color: white;
   text-decoration: none;
   font-weight: bold;
-  border-radius: 30px;
-  transition: background-color 0.3s ease;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
-.hero a:hover {
-  background-color: #d99a00;
+.donate-btn:hover {
+  background-color: #e04e52;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Arrows */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  border: none;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.6);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+}
+
+
+/* Arrows */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  border: none;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.6);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
 }
 
 @media (max-width: 768px) {
@@ -243,6 +262,19 @@ section {
   .hero p {
     font-size: 1rem;
   }
+  .divider {
+  overflow: hidden;
+  line-height: 0;
+}
+.section-divider {
+  width: 80%;
+  height: 2px;
+  background-color: #f5f0e6; /* soft beige */
+  margin: 60px auto; /* space above and below divider */
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
 }
 .about {
   padding: 80px 10%;
@@ -282,7 +314,7 @@ section {
 }
 
 .about-images img {
-  width: 80%;
+  width: 40%;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
@@ -290,15 +322,15 @@ section {
 
 .about-images .img-top {
   position: absolute;
-  top: -40px;
+  top: -70px;
   left: 0;
   z-index: 2;
 }
 
 .about-images .img-bottom {
   position: absolute;
-  bottom: -40px;
-  right: 0;
+  bottom: -80px;
+  right: 20;
   z-index: 1;
 }
 
@@ -367,7 +399,7 @@ section {
 
 .mission-image img {
   width: 100%;
-  max-width: 400px;
+  max-width: 200px;
   border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%; /* roundish blob part */
   object-fit: cover;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
