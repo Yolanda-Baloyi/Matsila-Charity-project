@@ -1,19 +1,42 @@
- const track = document.querySelector('.carousel-track');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
-    let currentIndex = 0;
+let viewMore =document.querySelector(".team-more");
 
-    function updateCarousel() {
-      track.style.transform = `translateX(-${currentIndex * 100}vw)`;
-    }
+viewMore.addEventListener('click', function(){
 
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
-      updateCarousel();
+ let onClick= document.querySelector('.team-inner-container');
+
+ onClick.classList.toggle('d-none');
+
+})
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.querySelectorAll('.slide');
+      const prev = document.querySelector('.prev');
+      const next = document.querySelector('.next');
+      let current = 0;
+
+      function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+      }
+
+      prev.addEventListener('click', () => {
+        current = (current === 0) ? slides.length - 1 : current - 1;
+        showSlide(current);
+      });
+
+      next.addEventListener('click', () => {
+        current = (current === slides.length - 1) ? 0 : current + 1;
+        showSlide(current);
+      });
+
+      showSlide(current);
+
+      // Auto-slide every 5s
+      setInterval(() => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      }, 5000);
     });
 
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
-      updateCarousel();
-    });
+
