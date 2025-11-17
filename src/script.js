@@ -1,10 +1,19 @@
 let viewMore =document.querySelector(".team-more");
+let onClick= document.querySelector('.team-inner-container');
+let moreTeam= document.querySelector('.close-team');
 
 viewMore.addEventListener('click', function(){
 
- let onClick= document.querySelector('.team-inner-container');
+ onClick.classList.remove('d-none')
+ viewMore.style.display="none";
+ moreTeam.style.display="block";
 
- onClick.classList.toggle('d-none');
+ moreTeam.addEventListener('click', function(){
+
+  onClick.classList.add('d-none')
+  viewMore.style.display="block";
+  moreTeam.style.display="none";
+ })
 
 })
 
@@ -39,4 +48,23 @@ viewMore.addEventListener('click', function(){
       }, 5000);
     });
 
+//hamburger menu
 
+const menu = document.querySelector('.burger-menu');
+ const list= document.querySelector('.header-list');
+ const closeButton=document.querySelector('.close-menu')
+menu.addEventListener('click' , function openMenu(){
+console.log('clicked')
+ 
+  
+
+  list.style.display="block";
+  menu.style.display="none"
+  closeButton.style.display="block"
+} )
+closeButton.addEventListener('click', function closeMenu(){
+
+   menu.style.display="block";
+   closeButton.style.display="none"
+   list.style.display="none";
+})
