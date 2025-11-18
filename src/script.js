@@ -1,12 +1,4 @@
-let viewMore =document.querySelector(".team-more");
 
-viewMore.addEventListener('click', function(){
-
- let onClick= document.querySelector('.team-inner-container');
-
- onClick.classList.toggle('d-none');
-
-})
 
 
   document.addEventListener("DOMContentLoaded", function () {

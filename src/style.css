@@ -152,10 +152,17 @@ padding-left: 180px;
 }
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 .hero {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -197,6 +204,7 @@ padding-left: 180px;
 .hero-text h1 {
   font-size: 3rem;
 }
+
 .donate-btn {
   display: inline-block;
   margin-top: 20px;
@@ -290,15 +298,6 @@ padding-left: 180px;
   overflow: hidden;
   line-height: 0;
 }
-.section-divider {
-  width: 80%;
-  height: 2px;
-  background-color: #f5f0e6; /* soft beige */
-  margin: 60px auto; /* space above and below divider */
-  border-radius: 2px;
-  opacity: 0.8;
-}
-
 }
 .about {
   padding: 110px;
@@ -387,11 +386,9 @@ padding-left: 180px;
     width: 60%;
   }
 }
-
 .mission {
-  padding: 10px 50px;
+  padding: 100px 10%;
   background-color: #fff;
-  margin: 10px 50px;
 }
 
 .mission-container {
@@ -408,40 +405,120 @@ padding-left: 180px;
   gap: 40px;
 }
 
+
 .mission-text {
   flex: 1 1 45%;
+  margin-left: -60px; /* move text left */
+}
+.mission-text ul {
+  list-style-type: none; /* Removes bullet points */
+  padding-left: 0;       /* Removes extra indentation */
+  margin: 0;             /* Optional: cleans up spacing */
+}
+
+.mission-text li {
+  margin-bottom: 10px;   /* Keeps line-by-line spacing */
 }
 
 .mission-text h2 {
   font-size: 2.5rem;
   color: #333;
   margin-bottom: 1rem;
-  padding-left: 130px;
 }
 
 .mission-text p {
   font-size: 1.1rem;
   color: #555;
   line-height: 1.7;
+  padding-left: 0;
 }
 
 /* Round / Heart-ish Images */
 .mission-image {
   flex: 1 1 45%;
   position: relative;
+  isolation: isolate; /* keeps the blur from leaking out */
+  margin-left: 60px;
+  
+}
+.mission-image::before {
+  content: "";
+  position: absolute;
+  inset: -8% -10% -12% -10%; /* grow beyond image bounds */
+  z-index: -1;
+  background:
+    radial-gradient(120px 120px at 25% 30%, rgba(99, 91, 255, 0.28), transparent 60%),
+    radial-gradient(150px 140px at 75% 60%, rgba(255, 202, 77, 0.25), transparent 65%),
+    radial-gradient(200px 180px at 40% 80%, rgba(0, 0, 0, 0.12), transparent 70%);
+  filter: blur(30px);
+  border-radius: 40% 60% 50% 70% / 50% 40% 60% 50%;
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+.mission {
+  position: relative;
+}
+
+.mission-decor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Decorative only */
+  z-index: 0;
+}
+
+.mission-decor .icon {
+  position: absolute;
+  font-size: 80px;
+  opacity: 0.08; /* Very light */
+  color: #1e3a8a; /* Navy blue by default */
+}
+
+.mission-decor .book {
+  top: 20%;
+  left: 10%;
+  color: #6b8e23; /* Avocado green */
+}
+
+.mission-decor .tree {
+  bottom: 15%;
+  right: 10%;
+  color: #f8f4ec; /* Beige */
+}
+
+.mission-decor .hands {
+  top: 50%;
+  right: 40%;
+  color: #1e3a8a; /* Navy blue */
+}
+
+
+.mission-image:hover::before {
+  filter: blur(36px) saturate(1.05);
+  transform: scale(1.03);
+}
+/* Apply filter to the container so it affects the image shape */
+.mission-image.cloudy {
+  filter: url(#cloudy);
 }
 
 .mission-image img {
-  width: 100%;
-  max-width: 200px;
-  border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%; /* roundish blob part */
+  width: 110%;
+  max-width: 280px;
   object-fit: cover;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  clip-path: polygon(
+    50% 0%, 65% 5%, 80% 15%, 90% 30%, 95% 50%,
+    90% 70%, 80% 85%, 65% 95%, 50% 100%,
+    35% 95%, 20% 85%, 10% 70%, 5% 50%, 10% 30%, 20% 15%, 35% 5%
+  );
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease;
 }
 
 .mission-image img:hover {
-  transform: scale(1.03);
+  transform: scale(1.05) rotate(-2deg);
 }
 
 /* Responsive */
@@ -456,8 +533,9 @@ padding-left: 180px;
   }
 
   .mission-text {
-    text-align: center;
-  }
+    flex: 1 1 45%;
+  margin-left: -40px; /* move text left */
+}
 }
 
 /* ===================== */
