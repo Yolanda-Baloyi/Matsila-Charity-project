@@ -162,7 +162,7 @@ html, body {
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   overflow: hidden;
 }
 
@@ -400,7 +400,7 @@ html, body {
 .mission-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 40px;
 }
@@ -411,13 +411,13 @@ html, body {
   margin-left: -60px; /* move text left */
 }
 .mission-text ul {
-  list-style-type: none; /* Removes bullet points */
-  padding-left: 0;       /* Removes extra indentation */
-  margin: 0;             /* Optional: cleans up spacing */
+  list-style-type: none; 
+  padding-left: 0;       
+  margin: 0;             
 }
 
 .mission-text li {
-  margin-bottom: 10px;   /* Keeps line-by-line spacing */
+  line-height: 1;   /* Keeps line-by-line spacing */
 }
 
 .mission-text h2 {
@@ -537,7 +537,13 @@ html, body {
   margin-left: -40px; /* move text left */
 }
 }
-
+.divider {
+  width: 100%;
+  height: 30px;
+  background-image: url(pattern2.webp);
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
 /* ===================== */
 /* Meet Our Team Section */
 /* ===================== */
