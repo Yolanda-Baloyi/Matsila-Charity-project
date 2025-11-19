@@ -1,14 +1,25 @@
-let viewMore =document.querySelector(".team-more");
+//hamburger menu
 
-viewMore.addEventListener('click', function(){
+const menu = document.querySelector('.burger-menu');
+ const list= document.querySelector('.header-list');
+ const closeButton=document.querySelector('.close-menu')
+menu.addEventListener('click' , function openMenu(){
+console.log('clicked')
+ 
+  
 
- let onClick= document.querySelector('.team-inner-container');
+  list.style.display="block";
+  menu.style.display="none"
+  closeButton.style.display="block"
+} )
+closeButton.addEventListener('click', function closeMenu(){
 
- onClick.classList.toggle('d-none');
-
+   menu.style.display="block";
+   closeButton.style.display="none"
+   list.style.display="none";
 })
 
-
+//Carousel 
   document.addEventListener("DOMContentLoaded", function () {
       const slides = document.querySelectorAll('.slide');
       const prev = document.querySelector('.prev');
@@ -38,5 +49,47 @@ viewMore.addEventListener('click', function(){
         showSlide(current);
       }, 5000);
     });
+
+// click to view more team members 
+
+let viewMore =document.querySelector(".team-more");
+let onClick= document.querySelector('.team-inner-container');
+let moreTeam= document.querySelector('.close-team');
+
+viewMore.addEventListener('click', function(){
+
+ onClick.classList.remove('d-none')
+ viewMore.style.display="none";
+ moreTeam.style.display="block";
+
+ moreTeam.addEventListener('click', function(){
+
+  onClick.classList.add('d-none')
+  viewMore.style.display="block";
+  moreTeam.style.display="none";
+ })
+
+})
+
+//Gallery modal
+
+let modal= document.querySelector(".more-images");
+let closeModal=document.querySelector('.close-modal');
+
+let image=document.querySelector('.image-cover img');
+
+//Show modal whne image is clicked 
+image.addEventListener('click', function(){
+
+modal.classList.add('active');
+
+  modal.style.display="block";
+//hide modal when close button is clicked 
+  closeModal.addEventListener('click', function(){
+     modal.style.display="none";
+     modal.classList.remove('active');
+  })
+})
+
 
 
