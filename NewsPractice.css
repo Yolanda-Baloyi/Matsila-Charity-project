@@ -8,15 +8,15 @@
     margin: 3%;
     height: fit-content;   
 }
-.donate {
+.bttn {
   background-color: #a1770a;
   padding: 0%;
   border-radius: 0%;
   color: white;
 }
-.donate-btn {
+.bttn {
   display: inline-block;
-  margin: 0px;
+  margin: 15px;
   padding: 100px 100px;
   background-color: #a1770a;
   color: white;
@@ -25,7 +25,7 @@
   border-radius: 0%;
   transition: 0.3s;
 }
-.donate-btn:hover {
+.bttn:hover {
   background-color: #6fa6e4;
 }
 
