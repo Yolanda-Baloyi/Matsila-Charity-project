@@ -1,4 +1,26 @@
-      document.addEventListener("DOMContentLoaded", function () {
+//hamburger menu
+
+const menu = document.querySelector('.burger-menu');
+ const list= document.querySelector('.header-list');
+ const closeButton=document.querySelector('.close-menu')
+menu.addEventListener('click' , function openMenu(){
+console.log('clicked')
+ 
+  
+
+  list.style.display="block";
+  menu.style.display="none"
+  closeButton.style.display="block"
+} )
+closeButton.addEventListener('click', function closeMenu(){
+
+   menu.style.display="block";
+   closeButton.style.display="none"
+   list.style.display="none";
+})
+
+//Carousel 
+  document.addEventListener("DOMContentLoaded", function () {
       const slides = document.querySelectorAll('.slide');
       const prev = document.querySelector('.prev');
       const next = document.querySelector('.next');
