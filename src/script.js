@@ -49,47 +49,43 @@ closeButton.addEventListener('click', function closeMenu(){
         showSlide(current);
       }, 5000);
     });
+    
+// const fullText = document.getElementById('aboutText').innerText;
+// const readMoreBtn = document.getElementById('readMoreBtn');
 
-// click to view more team members 
+// // Function to compress text to 60 words
+// function truncateText(text, wordLimit) {
+//   const words = text.split(' ');
+//   if (words.length <= wordLimit) return text;
+//   return words.slice(0, wordLimit).join(' ') + '...';
+// }
 
-let viewMore =document.querySelector(".team-more");
-let onClick= document.querySelector('.team-inner-container');
-let moreTeam= document.querySelector('.close-team');
+// // Initially show 60 words
+// document.getElementById('aboutText').innerText = truncateText(fullText, 60);
 
-viewMore.addEventListener('click', function(){
+// readMoreBtn.addEventListener('click', () => {
+//   document.getElementById('aboutText').innerText = fullText;
+//   readMoreBtn.classList.add('hidden');
+// });
 
- onClick.classList.remove('d-none')
- viewMore.style.display="none";
- moreTeam.style.display="block";
+// Reset text when scrolling past container
+window.addEventListener('scroll', () => {
+  const container = document.querySelector('.about-container');
+  const rect = container.getBoundingClientRect();
+  if (rect.bottom < 0 || rect.top > window.innerHeight) {
+    document.getElementById('aboutText').innerText = truncateText(fullText, 60);
+    readMoreBtn.classList.remove('hidden');
+  }
+}
+)
 
- moreTeam.addEventListener('click', function(){
+//about us more buttom 
 
-  onClick.classList.add('d-none')
-  viewMore.style.display="block";
-  moreTeam.style.display="none";
- })
+let moreBtn= document.querySelector('.read-more-btn');
+let moreInfo= document.querySelector('.more-aboutUs');
 
+
+moreBtn.addEventListener('click', function(){
+  moreInfo.style.display="block";
 })
-
-//Gallery modal
-
-let modal= document.querySelector(".more-images");
-let closeModal=document.querySelector('.close-modal');
-
-let image=document.querySelector('.image-cover img');
-
-//Show modal whne image is clicked 
-image.addEventListener('click', function(){
-
-modal.classList.add('active');
-
-  modal.style.display="block";
-//hide modal when close button is clicked 
-  closeModal.addEventListener('click', function(){
-     modal.style.display="none";
-     modal.classList.remove('active');
-  })
-})
-
-
 
