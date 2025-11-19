@@ -336,7 +336,9 @@ html, body {
   color: #555;
   line-height: 1.7;
 }
-
+.more-aboutUs{
+  display: none;
+}
 .about-images {
   position: relative;
   flex: 1 1 45%;

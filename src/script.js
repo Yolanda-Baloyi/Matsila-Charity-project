@@ -28,23 +28,23 @@
       }, 5000);
     });
     
-const fullText = document.getElementById('aboutText').innerText;
-const readMoreBtn = document.getElementById('readMoreBtn');
+// const fullText = document.getElementById('aboutText').innerText;
+// const readMoreBtn = document.getElementById('readMoreBtn');
 
-// Function to compress text to 60 words
-function truncateText(text, wordLimit) {
-  const words = text.split(' ');
-  if (words.length <= wordLimit) return text;
-  return words.slice(0, wordLimit).join(' ') + '...';
-}
+// // Function to compress text to 60 words
+// function truncateText(text, wordLimit) {
+//   const words = text.split(' ');
+//   if (words.length <= wordLimit) return text;
+//   return words.slice(0, wordLimit).join(' ') + '...';
+// }
 
-// Initially show 60 words
-document.getElementById('aboutText').innerText = truncateText(fullText, 60);
+// // Initially show 60 words
+// document.getElementById('aboutText').innerText = truncateText(fullText, 60);
 
-readMoreBtn.addEventListener('click', () => {
-  document.getElementById('aboutText').innerText = fullText;
-  readMoreBtn.classList.add('hidden');
-});
+// readMoreBtn.addEventListener('click', () => {
+//   document.getElementById('aboutText').innerText = fullText;
+//   readMoreBtn.classList.add('hidden');
+// });
 
 // Reset text when scrolling past container
 window.addEventListener('scroll', () => {
@@ -57,5 +57,13 @@ window.addEventListener('scroll', () => {
 }
 )
 
+//about us more buttom 
 
+let moreBtn= document.querySelector('.read-more-btn');
+let moreInfo= document.querySelector('.more-aboutUs');
+
+
+moreBtn.addEventListener('click', function(){
+  moreInfo.style.display="block";
+})
 
