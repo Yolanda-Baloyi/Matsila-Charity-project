@@ -78,9 +78,17 @@ let closeModal=document.querySelector('.close-modal');
 
 let image=document.querySelector('.image-cover img');
 
+//Show modal whne image is clicked 
 image.addEventListener('click', function(){
 
+modal.classList.add('active');
+
   modal.style.display="block";
+//hide modal when close button is clicked 
+  closeModal.addEventListener('click', function(){
+     modal.style.display="none";
+     modal.classList.remove('active');
+  })
 })
 
 

@@ -269,15 +269,42 @@ svg,
 
 /* pop up modal for gallery */
 
-.more-images{
-  margin: 0 20px;
-  z-index: 10;
+.more-images.active {
+  position: absolute;
+  margin: 0 50px;
+  z-index: 50;
   background: rgba(0, 0, 0, 0.7);
-
+  padding: 20px;
+  display:none;
+  top: -50px;
+  width: 900px;
 }
 
+.more-images h4 {
+  text-align: center;
+  color: white;
+}
 
+.close-modal {
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1;
+  color: white;
+  position: relative;
+  top: -35px;
+  cursor: pointer;
+}
 
+.popUp-images{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  grid-row-gap: 20px;
+ 
+}
+.popUp-images img{
+  width: 200px;
+}
 /* .more-images {
   position: absolute;
   z-index: 10;
