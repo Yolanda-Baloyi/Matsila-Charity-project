@@ -1,23 +1,25 @@
-let viewMore =document.querySelector(".team-more");
-let onClick= document.querySelector('.team-inner-container');
-let moreTeam= document.querySelector('.close-team');
+//hamburger menu
 
-viewMore.addEventListener('click', function(){
+const menu = document.querySelector('.burger-menu');
+ const list= document.querySelector('.header-list');
+ const closeButton=document.querySelector('.close-menu')
+menu.addEventListener('click' , function openMenu(){
+console.log('clicked')
+ 
+  
 
- onClick.classList.remove('d-none')
- viewMore.style.display="none";
- moreTeam.style.display="block";
+  list.style.display="block";
+  menu.style.display="none"
+  closeButton.style.display="block"
+} )
+closeButton.addEventListener('click', function closeMenu(){
 
- moreTeam.addEventListener('click', function(){
-
-  onClick.classList.add('d-none')
-  viewMore.style.display="block";
-  moreTeam.style.display="none";
- })
-
+   menu.style.display="block";
+   closeButton.style.display="none"
+   list.style.display="none";
 })
 
-
+//Carousel 
   document.addEventListener("DOMContentLoaded", function () {
       const slides = document.querySelectorAll('.slide');
       const prev = document.querySelector('.prev');
@@ -48,23 +50,38 @@ viewMore.addEventListener('click', function(){
       }, 5000);
     });
 
-//hamburger menu
+// click to view more team members 
 
-const menu = document.querySelector('.burger-menu');
- const list= document.querySelector('.header-list');
- const closeButton=document.querySelector('.close-menu')
-menu.addEventListener('click' , function openMenu(){
-console.log('clicked')
- 
-  
+let viewMore =document.querySelector(".team-more");
+let onClick= document.querySelector('.team-inner-container');
+let moreTeam= document.querySelector('.close-team');
 
-  list.style.display="block";
-  menu.style.display="none"
-  closeButton.style.display="block"
-} )
-closeButton.addEventListener('click', function closeMenu(){
+viewMore.addEventListener('click', function(){
 
-   menu.style.display="block";
-   closeButton.style.display="none"
-   list.style.display="none";
+ onClick.classList.remove('d-none')
+ viewMore.style.display="none";
+ moreTeam.style.display="block";
+
+ moreTeam.addEventListener('click', function(){
+
+  onClick.classList.add('d-none')
+  viewMore.style.display="block";
+  moreTeam.style.display="none";
+ })
+
 })
+
+//Gallery modal
+
+let modal= document.querySelector(".more-images");
+let closeModal=document.querySelector('.close-modal');
+
+let image=document.querySelector('.image-cover img');
+
+image.addEventListener('click', function(){
+
+  modal.style.display="block";
+})
+
+
+
